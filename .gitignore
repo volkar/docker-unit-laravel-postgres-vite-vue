@@ -10,7 +10,8 @@
 /storage/logs/*
 /storage/framework/*
 /vendor
-.env
+composer.lock
+package-lock.json
 .env.backup
 .env.production
 .phpunit.result.cache
