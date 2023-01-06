@@ -1,0 +1,31 @@
+version: '3.9'
+services:
+    server:
+        build:
+            context: .
+            dockerfile: docker/alpine-unit/Dockerfile
+            args:
+              - GIT_EMAIL=${GIT_EMAIL}
+              - GIT_NAME=${GIT_NAME}
+              - PHPVERSION=${PHPVERSION}
+        container_name: ${COMPOSE_PROJECT_NAME}-server
+        ports:
+            - ${NGINX_UNIT_HOST_PORT}:${NGINX_UNIT_CONTAINER_PORT}
+            - ${PHPUNIT_HOST_PORT}:${PHPUNIT_CONTAINER_PORT}
+        volumes:
+            - .:/www:rw
+
+    postgres:
+        build:
+            context: ./docker/postgres
+        container_name: ${COMPOSE_PROJECT_NAME}-postgres
+        restart: always
+        environment:
+            - POSTGRES_DB=${POSTGRES_DB}
+            - POSTGRES_USER=${POSTGRES_USER}
+            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+        ports:
+            - ${POSTGRES_HOST_PORT}:${POSTGRES_CONTAINER_PORT}
+        volumes:
+            - ./docker/postgres/data:/var/lib/postgresql/data:rw
+        user: "${UID}:${GID}"
