@@ -11,7 +11,6 @@
 - PostgreSQL
 
 ### Vue frontend:
-- TypeScript
 - Vue 3
 - Vite for assets build
 
