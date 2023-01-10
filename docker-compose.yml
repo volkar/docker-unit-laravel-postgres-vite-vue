@@ -10,8 +10,8 @@ services:
               - PHPVERSION=${PHPVERSION}
         container_name: ${COMPOSE_PROJECT_NAME}-server
         ports:
-            - ${NGINX_UNIT_HOST_PORT}:${NGINX_UNIT_CONTAINER_PORT}
-            - ${PHPUNIT_HOST_PORT}:${PHPUNIT_CONTAINER_PORT}
+            - "80:80"
+            - "9003:9003"
         volumes:
             - .:/www:rw
 
@@ -21,11 +21,11 @@ services:
         container_name: ${COMPOSE_PROJECT_NAME}-postgres
         restart: always
         environment:
-            - POSTGRES_DB=${POSTGRES_DB}
-            - POSTGRES_USER=${POSTGRES_USER}
-            - POSTGRES_PASSWORD=${POSTGRES_PASSWORD}
+            - POSTGRES_DB=${DB_DATABASE}
+            - POSTGRES_USER=${DB_USERNAME}
+            - POSTGRES_PASSWORD=${DB_PASSWORD}
         ports:
-            - ${POSTGRES_HOST_PORT}:${POSTGRES_CONTAINER_PORT}
+            - "5432:5432"
         volumes:
             - ./docker/postgres/data:/var/lib/postgresql/data:rw
         user: "${UID}:${GID}"

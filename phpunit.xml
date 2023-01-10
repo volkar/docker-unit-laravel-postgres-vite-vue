@@ -24,10 +24,10 @@
         <env name="APP_ENV" value="testing"/>
         <env name="BCRYPT_ROUNDS" value="4"/>
         <env name="CACHE_DRIVER" value="array"/>
-        <env name="POSTGRES_HOST" value="postgres"/>
-        <env name="POSTGRES_DB" value="laravel"/>
-        <env name="POSTGRES_USER" value="dbuser"/>
-        <env name="POSTGRES_PASSWORD" value="dbpassword"/>
+        <env name="DB_HOST" value="postgres"/>
+        <env name="DB_DATABASE" value="laravel"/>
+        <env name="DB_USERNAME" value="dbuser"/>
+        <env name="DB_PASSWORD" value="dbpassword"/>
         <env name="MAIL_MAILER" value="array"/>
         <env name="QUEUE_CONNECTION" value="sync"/>
         <env name="SESSION_DRIVER" value="array"/>

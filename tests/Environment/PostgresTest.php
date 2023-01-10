@@ -10,10 +10,10 @@ class PostgresTest extends TestCase
 {
     public function test_connect_to_postgresql_with_pdo()
     {
-        $db_host = $_ENV['POSTGRES_HOST'];
-        $db_name = $_ENV['POSTGRES_DB'];
-        $db_user = $_ENV['POSTGRES_USER'];
-        $db_password = $_ENV['POSTGRES_PASSWORD'];
+        $db_host = $_ENV['DB_HOST'];
+        $db_name = $_ENV['DB_DATABASE'];
+        $db_user = $_ENV['DB_USERNAME'];
+        $db_password = $_ENV['DB_PASSWORD'];
 
         $pdo = new PDO(
             "pgsql:host=" . $db_host . ";dbname=" . $db_name . ";",
